@@ -1,4 +1,4 @@
-Steps to Rub the Project 
+Steps to Run the Project 
 
 1. Make sure that you open the complete Project file in any compiler and MarkComplete.txt must be in the same folder 
 because it conatins the input for out hash algo.
