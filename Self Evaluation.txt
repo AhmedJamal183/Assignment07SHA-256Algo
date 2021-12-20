@@ -1,0 +1,49 @@
+Ahmed Jamal
+F00534171
+
+1. How long did you spend on this assignment?
+
+Approx 6 ~ 8 Hours, Did in Multiple Sittings
+
+2. Based on your effort, what letter grade would you say you earned?
+
+Grade A
+
+
+3. Based on your solution, what letter grade would you say you earned?
+
+Grade A
+
+4. Provide a summary of what doesn't work in your solution, along with an explanation of how you attempted to solve the problem and where you feel you struggled.
+
+My approach to solve SHA 256 Algo was that first when i looked we have to produce a hash for the complete book of Mark, 
+so copy and pasting Mark again and again in Console doesn't seem a good idea, so I decided to use filing for this issue. 
+I copied the complete Mark on a text file and then throught filing get the data for hashing.
+For SHA-256 Algorithm the suumary for my solution is 
+Step 1 - Pre Processing
+In Preprocessing we convert the input to binary, Append a single 1, Pad with 0’s until data is a multiple of 512
+Append 64 bits to the end, where the 64 bits are a big-endian integer representing the length of the original input in binary.
+Now we have our input, which will always be evenly divisible by 512.
+Step 2 - Initialize Hash Values
+Now we create 8 hash values. 
+These are hard-coded constants that represent the first 32 bits of the fractional parts
+Step 3 - Initialize Round Constants
+Similar to step 2, we are creating some constantsThis time, there are 64 of them. 
+Each value (0-63) is the first 32 bits of the fractional parts of the cube roots of the first 64 primes (2 – 311).
+Step 4 - Chunk Loop
+The following steps will happen for each 512-bit “chunk” of data from our input. 
+In our case, because “we have 16 chapters of Mark” we will have multiple chunks. 
+At each iteration of the loop, we will be mutating the hash values, which will be the final output.
+Step 5 – Create Message Schedule
+Copy the input data from step 1 into a new array where each entry is a 32-bit word
+Add 48 more words initialized to zero, such that we have an array
+Modify the zero-ed indexes at the end of the array using the for loop from w[16…63]
+s0 = (w[i-15] rightrotate 7) xor (w[i-15] rightrotate 18) xor (w[i-15] rightshift 3)
+s1 = (w[i- 2] rightrotate 17) xor (w[i- 2] rightrotate 19) xor (w[i- 2] rightshift 10)
+w[i] = w[i-16] + s0 + w[i-7] + s1
+Step 6 – Compression
+Initialize variables and set them equal to the current hash values respectively & Run the compression loop. 
+Step 7 – Modify Final Values
+After the compression loop, but still, within the chunk loop, we modify the hash values by adding their respective variables to them,
+
+*ReadMe.txt File tell how to run this Project
